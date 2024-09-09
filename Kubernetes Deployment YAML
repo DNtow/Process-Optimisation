@@ -1,0 +1,20 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: process-optimization
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: process-optimization
+  template:
+    metadata:
+      labels:
+        app: process-optimization
+    spec:
+      containers:
+      - name: process-optimization
+        image: process-optimization:latest
+        ports:
+        - containerPort: 80
